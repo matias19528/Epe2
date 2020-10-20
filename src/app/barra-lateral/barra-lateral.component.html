@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar><img src="../../assets/Img/empresa.gif" width="160px" height="78px"></mat-toolbar>
+    <mat-nav-list style="border-width: 1px;">
+      <a mat-list-item routerLink="/home" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Home</a>
+      <a mat-list-item routerLink="/portafolio" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Portafolio</a>
+      <a mat-list-item routerLink="/servicio" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Servicio</a>
+      <a mat-list-item routerLink="/partners" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Partners</a>
+      <a mat-list-item routerLink="/contacto" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Contacto</a>
+      <a mat-list-item routerLink="/juegos" style="border-top: solid; border-width: 1px; background-color: #0f8adb;">Juegos</a>
+      <p style="border-top: solid; border-width: 1px;"></p>
+      <a><strong>Datos de la Empresa:</strong></a><br>
+      <a>La Empresa fue fundada el año 2020 por los estudiantes Eduardo Mancilla Y Matias Santis para el ramo de Desarrollo Web.</a>
+      <br><br>
+      <fieldset style="border-style: none; background-color: #033497;">
+        <a>Enviar Nuevas Cartas.</a>
+      </fieldset>
+      <fieldset style="border-style: none; background-color: #013cbe;">
+        <a>Tu e-mail:<br><input type="text" name="email" size="19px"></a>
+        <p></p>
+        <button type="submit">Enviar</button>
+      </fieldset>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
